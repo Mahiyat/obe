@@ -1,15 +1,14 @@
 import { Box, IconButton } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import CourseInfo from "./CourseInfo";
 
-function ResultDashboardRowActions() {
+function TutorialMarksViewActions() {
   return (
     <Box>
-      <IconButton onClick={()=>{<CourseInfo />}}>
+      <IconButton>
         <VisibilityIcon />
       </IconButton>
     </Box>
   );
 }
 
-export default ResultDashboardRowActions
+export default TutorialMarksViewActions
