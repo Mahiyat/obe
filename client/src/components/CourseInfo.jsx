@@ -1,6 +1,5 @@
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
-import PermanentDrawerLeft from "./PermanentDrawerLeft";
 import { DataGrid } from "@mui/x-data-grid";
 import TutorialMarksViewActions from "./TutorialMarksViewActions";
 
@@ -44,7 +43,6 @@ const rows = [
 export default function CourseInfo() {
   return (
     <Box sx={{ height: 400, width: "100%", display: "flex" }}>
-      <PermanentDrawerLeft />
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}

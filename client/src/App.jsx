@@ -1,13 +1,13 @@
-import ResultDashboard from "./components/ResultDashboard";
+import { Outlet } from "react-router-dom";
+import SideNavbar from "./components/SideNavbar";
 
 import "./App.css";
-import CourseInfo from "./components/CourseInfo";
 
 function App() {
   return (
     <div className="App">
-      {/* <ResultDashboard /> */}
-      <CourseInfo />
+      <SideNavbar />
+      <Outlet />
     </div>
   );
 }

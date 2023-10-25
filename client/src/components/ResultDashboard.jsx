@@ -1,8 +1,7 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 
 import ResultDashboardRowActions from "./ResultDashboardRowActions";
-import PermanentDrawerLeft from "./PermanentDrawerLeft";
 
 const columns = [
   {
@@ -48,12 +47,18 @@ const rows = [
 
 export default function ResultDashboard() {
   return (
-    <Box sx={{ height: 400, width: "100%", display: "flex" }}>
-      <PermanentDrawerLeft />
+    <Box sx={{ height: 400, display: "flex", flexGrow: "1" }}>
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
       >
+        <Typography
+          variant="h3"
+          sx={{ textAlign: "left", textDecoration: "underline #42a5f5" }}
+          gutterBottom
+        >
+          Courses
+        </Typography>
         <DataGrid
           rows={rows}
           columns={columns}
