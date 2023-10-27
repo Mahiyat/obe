@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import ResultDashboard from "../components/ResultDashboard";
 import CourseInfo from "../components/CourseInfo";
+import TutorialMarks from "../components/TutorialMarks";
 
 export default function AppRoutes() {
   const routes = createBrowserRouter([
@@ -12,7 +13,11 @@ export default function AppRoutes() {
       element: <App />,
       children: [
         { index: true, element: <ResultDashboard /> },
-        { path: "course-info", element: <CourseInfo /> },
+        {
+          path: "course-info",
+          element: <CourseInfo />,
+        },
+        { path: "tutorial-marks", element: <TutorialMarks authed={true} /> },
       ],
     },
   ]);

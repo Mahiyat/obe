@@ -24,7 +24,13 @@ const columns = [
     field: "actions",
     headerName: "Details",
     width: 200,
-    renderCell: (params) => <ResultDashboardRowActions />,
+    renderCell: (params) => (
+      <ResultDashboardRowActions
+        courseId={params.value.courseId}
+        courseName={params.value.courseName}
+        title={params.value.title}
+      />
+    ),
   },
 ];
 
@@ -34,14 +40,22 @@ const rows = [
     courseId: "CSE-105",
     courseName: "Structured Programming Language",
     title: "1st Year 1st Semester B.Sc. 2021",
-    actions: { id: 1, title: "1st Year 1st Semester B.Sc. 2021" },
+    actions: {
+      courseId: "CSE-105",
+      courseName: "Structured Programming Language",
+      title: "1st Year 1st Semester B.Sc. 2021",
+    },
   },
   {
     id: 2,
     courseId: "CSE-107",
     courseName: "Electrical Circuit",
     title: "1st Year 1st Semester B.Sc. 2021",
-    actions: { id: 2, title: "1st Year 1st Semester B.Sc. 2021" },
+    actions: {
+      courseId: "CSE-107",
+      courseName: "Electrical Circuit",
+      title: "1st Year 1st Semester B.Sc. 2021",
+    },
   },
 ];
 
