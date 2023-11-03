@@ -13,7 +13,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 
 const data = [
   { icon: <DashboardIcon />, label: "Dashboard", path: "/" },
-  { icon: <VisibilityIcon />, label: "View Courses", path: "/course-info" },
+  { icon: <VisibilityIcon />, label: "View Courses", path: "/view-courses" },
   {
     icon: <KeyboardArrowUpIcon />,
     label: "Submit Request",
