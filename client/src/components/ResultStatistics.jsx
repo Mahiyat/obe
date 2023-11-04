@@ -1,15 +1,13 @@
 import React from "react";
-import { Outlet, useNavigate } from "react-router-dom";
 import {
   Box,
-  Button,
   FormControl,
   InputLabel,
   MenuItem,
   Select,
   Typography,
 } from "@mui/material";
-import SingleCourseGraph from "./SingleCourseGraph";
+
 import AllCourseGraph from "./AllCourseGraph";
 import SingleCourseMenu from "./SingleCourseMenu";
 
@@ -63,9 +61,6 @@ export default function ResultStatistics() {
             </Box>
           </Box>
         </Box>
-        {/* {course !== "" && examTitle !== "" && (
-          <SingleCourseGraph course={course} exam={examTitle} />
-        )} */}
         {type === "All Courses" ? (<AllCourseGraph />) : type === "Single Course" ? (<SingleCourseMenu />) : (null)}
       </Box>
     </Box>

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   FormControl,
@@ -6,7 +7,7 @@ import {
   Select,
   Typography,
 } from "@mui/material";
-import React from "react";
+
 import SingleCourseGraph from "./SingleCourseGraph";
 
 export default function SingleCourseMenu() {
