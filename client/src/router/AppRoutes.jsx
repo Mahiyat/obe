@@ -23,9 +23,9 @@ export default function AppRoutes() {
         {
           path: "result-statistics",
           element: <ResultStatistics />,
-          children: [
-            { path: "single-course-graph", element: <SingleCourseGraph /> },
-          ],
+          // children: [
+          //   { path: "single-course-graph", element: <SingleCourseGraph /> },
+          // ],
         },
       ],
     },

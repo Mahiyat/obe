@@ -8,16 +8,50 @@ import {
   ChartsYAxis,
   LinePlot,
 } from "@mui/x-charts";
+import { ChartsLegend } from "@mui/x-charts/ChartsLegend";
 
 const valueFormatter = (value) => `${value}%`;
+
+const co1 = [80, 75];
+const co2 = [75, 75];
+const co3 = [70, 65];
+const co4 = [65, 60];
+const co5 = [60, 55];
 
 const series = [
   {
     type: "bar",
-    stack: "",
     yAxisKey: "general",
-    color: "#42a5f5",
-    data: [80, 75, 70, 60, 65],
+    label: "CO1",
+    data: co1,
+    valueFormatter,
+  },
+  {
+    type: "bar",
+    yAxisKey: "general",
+    label: "CO2",
+    data: co2,
+    valueFormatter,
+  },
+  {
+    type: "bar",
+    yAxisKey: "general",
+    label: "CO3",
+    data: co3,
+    valueFormatter,
+  },
+  {
+    type: "bar",
+    yAxisKey: "general",
+    label: "CO4",
+    data: co4,
+    valueFormatter,
+  },
+  {
+    type: "bar",
+    yAxisKey: "general",
+    label: "CO5",
+    data: co5,
     valueFormatter,
   },
   {
@@ -25,12 +59,12 @@ const series = [
     yAxisKey: "general",
     color: "#f44336",
     label: "Threshold",
-    data: [60, 60, 60, 60, 60],
+    data: [60, 60],
     valueFormatter,
   },
 ];
 
-export default function SingleCourseGraph({ course, exam }) {
+export default function AllCourseGraph() {
   return (
     <Box sx={{ position: "relative", top: "80%" }}>
       <Box
@@ -47,7 +81,7 @@ export default function SingleCourseGraph({ course, exam }) {
           xAxis={[
             {
               id: "courseOutcome",
-              data: ["CO1", "CO2", "CO3", "CO4", "CO5"],
+              data: ["CSE-105", "CSE-107"],
               scaleType: "band",
             },
           ]}
@@ -65,11 +99,11 @@ export default function SingleCourseGraph({ course, exam }) {
           />
           <ChartsYAxis label="Result" position="left" axisId="general" />
           <ChartsTooltip />
-          {/* <ChartsYAxis label="Threshold" position="right" axisId="threshold" /> */}
+          <ChartsLegend />
         </ChartContainer>
       </Box>
       <Typography variant="body1" gutterBottom>
-        {`Figure: ${exam} ${course}`}
+        Figure: All Courses
       </Typography>
     </Box>
   );
