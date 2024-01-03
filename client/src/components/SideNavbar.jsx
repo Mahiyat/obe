@@ -8,10 +8,12 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import CustomizedList from "./CustomizedList";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
 export default function SideNavbar() {
+  const navigate = useNavigate();
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -44,7 +46,7 @@ export default function SideNavbar() {
         />
 
         <Divider />
-        <Box sx={{height: "70%"}}>
+        <Box sx={{ height: "70%" }}>
           <CustomizedList />
         </Box>
         <Box>
@@ -52,35 +54,11 @@ export default function SideNavbar() {
             variant="outlined"
             sx={{ color: "black" }}
             startIcon={<LogoutIcon />}
+            onClick={() => navigate("/home")}
           >
             Logout
           </Button>
         </Box>
-        {/* <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
       </Drawer>
     </Box>
   );
