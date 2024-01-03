@@ -7,6 +7,7 @@ import CourseInfo from "../components/CourseInfo";
 import TutorialMarks from "../components/TutorialMarks";
 import ResultStatistics from "../components/ResultStatistics";
 import SingleCourseGraph from "../components/SingleCourseGraph";
+import HomePage from "../components/HomePage";
 
 export default function AppRoutes() {
   const routes = createBrowserRouter([
@@ -26,6 +27,10 @@ export default function AppRoutes() {
           // children: [
           //   { path: "single-course-graph", element: <SingleCourseGraph /> },
           // ],
+        },
+        {
+          path: "/home",
+          element: <HomePage />,
         },
       ],
     },
