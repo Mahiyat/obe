@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, Button, Typography } from "@mui/material";
 
+import CustomToolBar from "./CustomToolBar";
+
 const columns = [
   {
     field: "id",
@@ -76,7 +78,9 @@ export default function TutorialMarks() {
               },
             }}
             pageSizeOptions={[100]}
-            // checkboxSelection
+            slots={{
+              toolbar: CustomToolBar,
+            }}
             disableRowSelectionOnClick
           />
         </Box>

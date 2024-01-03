@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import {
   DataGrid,
   GridActionsCellItem,
   GridRowEditStopReasons,
   GridRowModes,
-  GridToolbarContainer,
 } from "@mui/x-data-grid";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
@@ -16,51 +15,7 @@ import CancelIcon from "@mui/icons-material/Close";
 
 import ResultDashboardRowActions from "./ResultDashboardRowActions";
 import { API_URL } from "../constants";
-
-function EditToolbar(props) {
-  const { setCourses, setRowModesModel } = props;
-
-  const handleClick = async () => {
-    try {
-      const response = await axios.post(API_URL, {
-        course_id: " ",
-        course_name: " ",
-        exam_title: " ",
-      });
-      const newRecord = response.data;
-      const id = newRecord.id;
-      setCourses((oldRows) => [
-        ...oldRows,
-        {
-          id,
-          course_id: '',
-          course_name: '',
-          exam_title: '',
-          details: {
-            courseId: '',
-            courseName: '',
-            title: '',
-          },
-          isNew: true,
-        },
-      ]);
-      setRowModesModel((oldModel) => ({
-        ...oldModel,
-        [id]: { mode: GridRowModes.Edit, fieldToFocus: "course_id" },
-      }));
-    } catch (error) {
-      console.error("Error adding record:", error);
-    }
-  };
-
-  return (
-    <GridToolbarContainer>
-      <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-        Add course
-      </Button>
-    </GridToolbarContainer>
-  );
-}
+import EditToolBar from "./EditToolBar";
 
 export default function ResultDashboard() {
   const [courses, setCourses] = useState([]);
@@ -153,11 +108,6 @@ export default function ResultDashboard() {
   };
 
   const columns = [
-    // {
-    //   field: "id",
-    //   headerName: "Sl No",
-    //   width: 350,
-    // },
     { field: "course_id", headerName: "Course ID", width: 90, editable: true },
     {
       field: "course_name",
@@ -263,7 +213,7 @@ export default function ResultDashboard() {
           checkboxSelection
           disableRowSelectionOnClick
           slots={{
-            toolbar: EditToolbar,
+            toolbar: EditToolBar,
           }}
           slotProps={{
             toolbar: { setCourses, setRowModesModel },
