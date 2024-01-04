@@ -1,17 +1,17 @@
 import axios from 'axios';
 import React from 'react'
-import { GridRowModes, GridToolbarContainer } from '@mui/x-data-grid';
+import { GridRowModes, GridToolbarContainer, GridToolbarFilterButton } from '@mui/x-data-grid';
 import { Button } from '@mui/material';
 import AddIcon from "@mui/icons-material/Add";
 
-import { API_URL } from '../constants';
+import { API_URL_COURSE } from '../constants';
 
-export default function EditToolBar(props) {
+export default function EditCourseToolBar(props) {
   const { setCourses, setRowModesModel } = props;
 
   const handleClick = async () => {
     try {
-      const response = await axios.post(API_URL, {
+      const response = await axios.post(API_URL_COURSE, {
         course_id: " ",
         course_name: " ",
         exam_title: " ",
@@ -47,6 +47,7 @@ export default function EditToolBar(props) {
       <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
         Add course
       </Button>
+      <GridToolbarFilterButton />
     </GridToolbarContainer>
   );
 }
