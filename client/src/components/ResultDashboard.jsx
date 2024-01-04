@@ -7,15 +7,14 @@ import {
   GridRowEditStopReasons,
   GridRowModes,
 } from "@mui/x-data-grid";
-import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
 
-import ResultDashboardRowActions from "./ResultDashboardRowActions";
-import { API_URL } from "../constants";
-import EditToolBar from "./EditToolBar";
+import ResultDashboardRowDetailsActions from "./ResultDashboardRowDetailsActions";
+import EditCourseToolBar from "./EditCourseToolBar";
+import { API_URL_COURSE } from "../constants";
 
 export default function ResultDashboard() {
   const [courses, setCourses] = useState([]);
@@ -26,7 +25,7 @@ export default function ResultDashboard() {
 
   const fetchData = () => {
     axios
-      .get(API_URL)
+      .get(API_URL_COURSE)
       .then((response) => {
         setCourses(response.data);
       })
@@ -77,7 +76,7 @@ export default function ResultDashboard() {
   };
 
   const processRowUpdate = async (newRow) => {
-    const api = API_URL + `${newRow.id}`;
+    const api = API_URL_COURSE + `${newRow.id}`;
     try {
       await axios.put(api, newRow);
       const updatedRowFromServer = newRow;
@@ -94,7 +93,7 @@ export default function ResultDashboard() {
   };
 
   const processRowDelete = async (id) => {
-    const api = API_URL + `${id}`;
+    const api = API_URL_COURSE + `${id}`;
     try {
       await axios.delete(api);
     } catch (error) {
@@ -126,7 +125,7 @@ export default function ResultDashboard() {
       headerName: "Details",
       width: 200,
       renderCell: (params) => (
-        <ResultDashboardRowActions
+        <ResultDashboardRowDetailsActions
           courseId={params.value.courseId}
           courseName={params.value.courseName}
           title={params.value.title}
@@ -213,7 +212,7 @@ export default function ResultDashboard() {
           checkboxSelection
           disableRowSelectionOnClick
           slots={{
-            toolbar: EditToolBar,
+            toolbar: EditCourseToolBar,
           }}
           slotProps={{
             toolbar: { setCourses, setRowModesModel },

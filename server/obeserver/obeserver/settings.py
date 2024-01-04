@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'courses',
+    'students',
+    'incourse',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +134,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Add your React app's URL
 ]
+
