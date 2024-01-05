@@ -37,12 +37,9 @@ def detail(request, pk):
     student.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
   
-@api_view(['GET'])
-def retrieve_name(request, s_id):
-  try:
-    c=Student.objects.get(student_id=s_id)
-    serializer=StudentSerializer(c, context={'request': request})
-  except Student.DoesNotExist:
-    return Response(status=status.HTTP_404_NOT_FOUND)
-  return Response({'name': serializer.data['name']})
+# @api_view(['GET'])
+# def retrieve_sid_name(request):
+#   c=Student.objects.all()
+#   serializer=StudentSerializer(c, context={'request': request}, many=True)
+#   return Response({'student_id': serializer.data['student_id'],'name': serializer.data['name']})
   

@@ -22,4 +22,5 @@ urlpatterns = [
     re_path(r'^api/courses/', include('courses.urls')),
     re_path(r'^api/students/', include('students.urls')),
     re_path(r'^api/incourse/', include('incourse.urls')),
+    re_path(r'^api/marksheet/', include('marksheet.urls')),
 ]
