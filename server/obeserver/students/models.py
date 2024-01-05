@@ -2,8 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Student(models.Model):
-  student_id=models.IntegerField(max_length=5)
-  exam_roll=models.IntegerField(max_length=10)
+  student_id=models.IntegerField(unique=True, max_length=5)
+  exam_roll=models.IntegerField(unique=True, max_length=10)
   registration_no=models.CharField(max_length=20)
   name=models.CharField(max_length=50)
   batch=models.IntegerField(max_length=3)
